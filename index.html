@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <header class="header">
+        <h1>To-Do List</h1>
+        <p>Organize your tasks efficiently</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card" id="backlog-card">
+            <h2>Backlog</h2>
+            <button class="add-task-btn" onclick="addTask('backlog-list')">Add Task</button>
+            <ul class="todo-list" id="backlog-list">
+                
+            </ul>
+            <div class="button-container">
+                <button class="nav-btn left" disabled>&#10094; Move Back</button>
+                <button class="nav-btn right" onclick="moveToNext('backlog-list', 'todo-list')">Move to To Do &#10145;</button>
+            </div>
+        </div>
+
+       
+        <div class="card" id="todo-card">
+            <h2>To Do</h2>
+            <button class="add-task-btn" onclick="addTask('todo-list')">Add Task</button>
+            <ul class="todo-list" id="todo-list">
+                
+            </ul>
+            <div class="button-container">
+                <button class="nav-btn left" onclick="moveToPrev('todo-list', 'backlog-list')">&#10094; Move to Backlog</button>
+                <button class="nav-btn right" onclick="moveToNext('todo-list', 'ongoing-list')">Move to Ongoing &#10145;</button>
+            </div>
+        </div>
+
+       
+        <div class="card" id="ongoing-card">
+            <h2>Ongoing</h2>
+            <button class="add-task-btn" onclick="addTask('ongoing-list')">Add Task</button>
+            <ul class="todo-list" id="ongoing-list">
+               
+            </ul>
+            <div class="button-container">
+                <button class="nav-btn left" onclick="moveToPrev('ongoing-list', 'todo-list')">&#10094; Move to To Do</button>
+                <button class="nav-btn right" onclick="moveToNext('ongoing-list', 'done-list')">Move to Done &#10145;</button>
+            </div>
+        </div>
+
+       
+        <div class="card" id="done-card">
+            <h2>Task Done</h2>
+            <button class="add-task-btn" onclick="addTask('done-list')">Add Task</button>
+            <ul class="todo-list" id="done-list">
+
+            </ul>
+            <div class="button-container">
+                <button class="nav-btn left" onclick="moveToPrev('done-list', 'ongoing-list')">&#10094; Move to Ongoing</button>
+                <button class="nav-btn right" disabled>Move Forward &#10145;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
